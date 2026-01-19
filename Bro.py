@@ -1,3 +1,6 @@
+#got this code from pyaudio 
+#first install pyaduio and wave and sys
+#os should already be in your python file you installed
 import pyaudio
 import wave
 import sys
@@ -7,7 +10,7 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 1 if sys.platform == 'darwin' else 2
 RATE = 44100
 RECORD_SECONDS = 5
-OUTPUT_FILENAME = 'desktop_audio.wav'
+OUTPUT_FILENAME = '/usr/lib/Pyaudio/desktop_audio.wav'
 
 p = pyaudio.PyAudio()
 
@@ -28,6 +31,8 @@ print('Done')
 stream.stop_stream()
 stream.close()
 
+import os 
+os.makedirs("/usr/lib/Pyaudio/desktop_audio.wav", exist_ok=True)
 wf = wave.open(OUTPUT_FILENAME, 'wb')
 wf.setnchannels(CHANNELS)
 wf.setsampwidth(p.get_sample_size(FORMAT))
